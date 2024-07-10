@@ -132,8 +132,10 @@ namespace RestorantManagement
   
     class Program
     {
+        
         static void Main(string[] args)
         {
+            var restaurant = new Restaurant();
 while (true)
 {
     Console.WriteLine("\nМЕНЮ");
