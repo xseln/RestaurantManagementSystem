@@ -57,6 +57,18 @@ namespace RestorantManagement
          }
      }
  }
+     public void AddNewTable()
+ {
+     Console.Write("Напишете номер на маса: ");
+     int id = int.Parse(Console.ReadLine());
+     Console.Write("Напишете капацитет на маса: ");
+     int capacity = int.Parse(Console.ReadLine());
+
+     var table = new Table { TableId = id, Capacity = capacity, IsReserved = false, ReservationName = string.Empty };
+     tables.Add(table);
+     SaveTablesToFile();
+     Console.WriteLine("Масата е добавена успешно.");
+ }
     class Program
     {
         static void Main(string[] args)
