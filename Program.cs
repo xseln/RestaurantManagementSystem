@@ -46,6 +46,7 @@ namespace RestorantManagement
                 }
             }
         }
+         //Записване на промените в текстовия файл
            private void SaveTablesToFile()
  {
      using (StreamWriter sw = new StreamWriter(filePath))
@@ -56,6 +57,7 @@ namespace RestorantManagement
          }
      }
  }
+         //Добавяне на нова маса
      public void AddNewTable()
  {
      Console.Write("Напишете номер на маса: ");
@@ -87,6 +89,7 @@ namespace RestorantManagement
                 Console.WriteLine("Масата не е намерена или вече е резервирана.");
             }
      }
+         //Отказване на резервация
         public void CancelReservation()
  {
      Console.Write("Напишете номера на масата, която искате да откажете: ");
@@ -121,6 +124,7 @@ namespace RestorantManagement
                 Console.WriteLine("Няма налични маси.");
             }
         }
+         //Извежда списък с всички маси
          public void ListAllTables()
 {
     Console.WriteLine("Всички маси:");
@@ -176,11 +180,9 @@ while (true)
            
             break;
     }
-
-
-}
-          
+}        
         }
+        //Добавя празен ред
        private static void AddLine(int count = 1)
  {
      for (int i = 0; i < count; i++)
