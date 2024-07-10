@@ -14,6 +14,39 @@ namespace RestorantManagement
         public bool IsReserved { get; set; }
         public string ReservationName { get; set; }
     }
+     public class Restaurant
+    {
+        private List<Table> tables = new List<Table>();
+        private string filePath = "tables.txt";
+
+        public Restaurant()
+        {
+            LoadTablesFromFile();
+        }
+
+        private void LoadTablesFromFile()
+        {
+            if (File.Exists(filePath))
+            {
+                using (StreamReader sr = new StreamReader(filePath))
+                {
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        var parts = line.Split(',');
+                        var table = new Table
+                        {
+                            TableId = int.Parse(parts[0]),
+                            Capacity = int.Parse(parts[1]),
+                            IsReserved = bool.Parse(parts[2]),
+                            ReservationName = parts.Length > 3 ? parts[3] : string.Empty
+                        };
+                        tables.Add(table);
+                    }
+                }
+            }
+        }
+     }
    
     class Program
     {
