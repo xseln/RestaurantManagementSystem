@@ -104,6 +104,14 @@ namespace RestorantManagement
          Console.WriteLine("Масата не е намерена или не е резервирана.");
      }
  }  
+         public void ListAllTables()
+{
+    Console.WriteLine("Всички маси:");
+    foreach (var table in tables)
+    {
+        Console.WriteLine($"Номер на маса: {table.TableId}, Капацитет: {table.Capacity}, Резервация: {table.IsReserved}, Име: {table.ReservationName}");
+    }
+}
 }
   
     class Program
