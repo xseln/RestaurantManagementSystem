@@ -46,8 +46,7 @@ namespace RestorantManagement
                 }
             }
         }
-     }
-    private void SaveTablesToFile()
+           private void SaveTablesToFile()
  {
      using (StreamWriter sw = new StreamWriter(filePath))
      {
@@ -68,7 +67,27 @@ namespace RestorantManagement
      tables.Add(table);
      SaveTablesToFile();
      Console.WriteLine("Масата е добавена успешно.");
+  }
  }
+ public void ReserveTable()
+        {
+            Console.Write("Напишете номер на маса за резервация: ");
+            int id = int.Parse(Console.ReadLine());
+            var table = tables.FirstOrDefault(t => t.TableId == id);
+            if (table != null && !table.IsReserved)
+            {
+                Console.Write("Напишете двете си имена: ");
+                table.ReservationName = Console.ReadLine();
+                table.IsReserved = true;
+                SaveTablesToFile();
+                Console.WriteLine("Масата е резервирана успешно.");
+            }
+            else
+            {
+                Console.WriteLine("Масата не е намерена или вече е резервирана.");
+            }
+     }
+  
     class Program
     {
         static void Main(string[] args)
