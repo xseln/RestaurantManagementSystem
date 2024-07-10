@@ -162,6 +162,12 @@ while (true)
 }
           
         }
-      
+       private static void AddLine(int count = 1)
+ {
+     for (int i = 0; i < count; i++)
+     {
+         Console.WriteLine(Environment.NewLine);
+     }
+ }
     }
 }
