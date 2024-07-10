@@ -87,7 +87,23 @@ namespace RestorantManagement
                 Console.WriteLine("Масата не е намерена или вече е резервирана.");
             }
      }
-         
+        public void CancelReservation()
+ {
+     Console.Write("Напишете номера на масата, която искате да откажете: ");
+     int id = int.Parse(Console.ReadLine());
+     var table = tables.FirstOrDefault(t => t.TableId == id);
+     if (table != null && table.IsReserved)
+     {
+         table.IsReserved = false;
+         table.ReservationName = string.Empty;
+         SaveTablesToFile();
+         Console.WriteLine("Резервацията е отказана успешно.");
+     }
+     else
+     {
+         Console.WriteLine("Масата не е намерена или не е резервирана.");
+     }
+ }  
 }
   
     class Program
