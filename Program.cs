@@ -68,7 +68,7 @@ namespace RestorantManagement
      SaveTablesToFile();
      Console.WriteLine("Масата е добавена успешно.");
   }
- }
+         	    
  public void ReserveTable()
         {
             Console.Write("Напишете номер на маса за резервация: ");
@@ -87,6 +87,8 @@ namespace RestorantManagement
                 Console.WriteLine("Масата не е намерена или вече е резервирана.");
             }
      }
+         
+}
   
     class Program
     {
