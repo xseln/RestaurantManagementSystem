@@ -23,7 +23,7 @@ namespace RestorantManagement
         {
             LoadTablesFromFile();
         }
-
+// Метод за зареждане на масите от файл
         private void LoadTablesFromFile()
         {
             if (File.Exists(filePath))
@@ -68,7 +68,7 @@ namespace RestorantManagement
      SaveTablesToFile();
      Console.WriteLine("Масата е добавена успешно.");
   }
-         	    
+    // Метод за резервиране на маса      	    
  public void ReserveTable()
         {
             Console.Write("Напишете номер на маса за резервация: ");
@@ -104,6 +104,7 @@ namespace RestorantManagement
          Console.WriteLine("Масата не е намерена или не е резервирана.");
      }
  }  
+         // Метод за проверка на наличните маси
           public void CheckAvailableTables()
         {
             var availableTables = tables.Where(t => !t.IsReserved).ToList();
