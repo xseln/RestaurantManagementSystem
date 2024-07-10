@@ -47,7 +47,16 @@ namespace RestorantManagement
             }
         }
      }
-   
+    private void SaveTablesToFile()
+ {
+     using (StreamWriter sw = new StreamWriter(filePath))
+     {
+         foreach (var table in tables)
+         {
+             sw.WriteLine($"{table.TableId},{table.Capacity},{table.IsReserved},{table.ReservationName}");
+         }
+     }
+ }
     class Program
     {
         static void Main(string[] args)
